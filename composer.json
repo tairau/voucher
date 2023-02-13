@@ -1,0 +1,24 @@
+{
+    "name": "tairau/voucher",
+    "require": {
+        "php": "^8.2",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*",
+        "php-di/php-di": "^7.0.2",
+        "sunrise/http-router": "^v2.16.2",
+        "sunrise/http-message": "^v3.0.0",
+        "doctrine/dbal": "^3.6.0",
+        "symfony/console": "^v6.2.5",
+        "symfony/dotenv": "^6.2.5"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^v6.2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Core\\": "core/"
+        }
+    }
+}

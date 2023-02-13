@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php-cli/Dockerfile
+    user: www-data
+    volumes:
+    - .:/var/www/html
+    working_dir: /var/www/html
+    ports:
+    - "8001:8001"
+    command: php -S 0.0.0.0:8001 /var/www/html/public/index.php
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+    - "3306:${MYSQL_PORT}"
+    volumes:
+    - db:/var/lib/mysql
+
+volumes:
+  db:
